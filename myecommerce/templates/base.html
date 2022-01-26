@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mi nest Birdnest</title>
+
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://kit.fontawesome.com/5866728add.js" crossorigin="anonymous"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700" rel="stylesheet"> {% load static %}
+    <link rel="stylesheet" href='{% static "css/bootstrap.min.css" %}' />
+    <link rel="stylesheet" href='{% static "css/nav.css" %}' />
+    <link rel="stylesheet" href='{% static "css/open-iconic-bootstrap.min.css" %}' />
+    <link rel="stylesheet" href='{% static "css/animate.css"%}' />
+
+    <link rel="stylesheet" href='{% static "css/owl.carousel.min.css"%}' />
+    <link rel="stylesheet" href='{% static "css/owl.theme.default.min.css"%}' />
+    <link rel="stylesheet" href='{% static "css/magnific-popup.css"%}' />
+
+    <link rel="stylesheet" href='{% static "css/aos.css"%}' />
+
+    <link rel="stylesheet" href='{% static "css/ionicons.min.css"%}' />
+
+    <link rel="stylesheet" href='{% static "css/bootstrap-datepicker.css"%}' />
+    <link rel="stylesheet" href='{% static "css/jquery.timepicker.css"%}' />
+
+
+    <link rel="stylesheet" href='{% static "css/flaticon.css"%}' />
+    <link rel="stylesheet" href='{% static "css/icomoon.css"%}' />
+    <link rel="stylesheet" href='{% static "css/style.css"%}' />
+    <link rel="stylesheet" href='{% static "css/util.css"%}'/>
+	<link rel="stylesheet" href='{% static "css/main.css"%}'/>
+
+
+
+</head>
+
+<body>
+    {% include 'nav.htm' %}
+     {% block head_Style %}
+     {% endblock %}
+     {% block content %} Hi! {% endblock %}
+
+
+    <footer class="ftco-footer bg-light ftco-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">MI NEST BIRDNEST</h2>
+                        <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                            <li class="ftco-animate"><a href="https://www.facebook.com/miinest/"><span class="icon-facebook"></span></a></li>
+                            <li class="ftco-animate"><a href="https://www.instagram.com/mi.nest/?hl=en"><span class="icon-instagram"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4 ml-md-5">
+                        <h2 class="ftco-heading-2">Menu</h2>
+                        <ul class="list-unstyled">
+                            <li><a href='{% url "all" %}' class="py-2 d-block">Shop</a></li>
+                             {% if request.user.is_authenticated %}
+                             <li><a href='{% url "profile" %}'  class="py-2 d-block">User Profile</a></li>
+                             {% else %}
+                            <li><a href='{% url "auth_login" %}'  class="py-2 d-block">Login</a></li>
+                            <li><a href='{% url "auth_register" %}'  class="py-2 d-block">Sign Up</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Help</h2>
+                        <div class="d-flex">
+                            <ul class="list-unstyled mr-l-5 pr-l-3 mr-4">
+                                <li><a href="#" class="py-2 d-block">Shipping Information</a></li>
+                                <li><a href="#" class="py-2 d-block">Returns &amp; Exchange</a></li>
+                                <li><a href="#" class="py-2 d-block">Terms &amp; Conditions</a></li>
+                                <li><a href="#" class="py-2 d-block">Privacy Policy</a></li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Have a Questions?</h2>
+                        <div class="block-23 mb-3">
+                            <ul>
+                                <li><span class="icon icon-map-marker"></span><span class="text">Kuala Lumpur, Malaysia</span></li>
+                                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+60 123 210</span></a></li>
+                                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">mii.nest28@gmail.com</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+    <script src='{% static "js/jquery.min.js"%}'></script>
+    <script src='{% static "js/jquery-migrate-3.0.1.min.js"%}'></script>
+    <script src='{% static "js/popper.min.js"%}'></script>
+    <script src='{% static "js/bootstrap.min.js"%}'></script>
+    <script src='{% static "js/jquery.easing.1.3.js"%}'></script>
+    <script src='{% static "js/jquery.waypoints.min.js"%}'></script>
+    <script src='{% static "js/jquery.stellar.min.js"%}'></script>
+    <script src='{% static "js/owl.carousel.min.js"%}'></script>
+    <script src='{% static "js/jquery.magnific-popup.min.js"%}'></script>
+    <script src='{% static "js/aos.js"%}'></script>
+    <script src='{% static "js/jquery.animateNumber.min.js"%}'></script>
+    <script src='{% static "js/bootstrap-datepicker.js"%}'></script>
+    <script src='{% static "js/scrollax.min.js"%}'></script>
+    <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false'></script>
+    <script src='{% static "js/google-map.js"%}'></script>
+    <script src='{% static "js/main.js"%}'></script>
+
+    <script>
+        $(document).ready(function() {
+            { % block jquery %} { % endblock %}
+        });
+    </script>
+
+
+
+<script>
+    $(document).ready(function() {
+        $('#quantity').val(1);
+        var quantitiy = 1;
+        $('.quantity-right-plus').click(function(e) {
+
+            // Stop acting like a button
+            e.preventDefault();
+            // Get the field name
+            var quantity = parseInt($('#quantity').val());
+
+            // If is not undefined
+
+            $('#quantity').val(quantity + 1);
+
+
+            // Increment
+
+        });
+
+        $('.quantity-left-minus').click(function(e) {
+            // Stop acting like a button
+            e.preventDefault();
+            // Get the field name
+            var quantity = parseInt($('#quantity').val());
+
+            // If is not undefined
+
+            // Increment
+            if (quantity > 1) {
+                $('#quantity').val(quantity - 1);
+            }
+        });
+
+    });
+</script>
+</body>
+
+</html>

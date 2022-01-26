@@ -1,0 +1,55 @@
+
+
+{%  extends 'base.html' %}
+
+{% load static %}
+<link rel="stylesheet"  href='{% static "css/bootstrap.min.css" %}' />
+
+
+      {%  block head_Style %}
+
+        <style>
+        .cont {
+          color : royalblue;
+        }
+        </style>
+
+
+      {%  endblock %}
+
+
+
+
+    {% block content  %}
+
+    <div class="row " style = "margin: 5px;">
+{%for Product in products%}
+       <div class="col-xs-2 " style = "margin: 5px;">
+          <div class="card" style="width: 14rem;">
+         {%if Product.productimage_set.all%}
+           {% for item in Product.productimage_set.all %}
+              <img class="img-responsive"
+              src="../media/{{ MEDIA_URL }}{{ item.image }}" alt="Error Displaying img" height="250"/>
+                {%endfor%}
+        {%else%}
+          <img class="img-responsive"
+          src="media/placeholder.jpg" alt="Error Displaying img" height="250"/>
+        {%endif%}
+                <hr>
+              <div class="card-body">
+            <a href='{% url "single_product" Product.slug%}'> <h5 class="card-title">{{Product.title}}</h5> </a>
+              <h6 class="card-title">{{Product.price}}</h6>
+
+
+             </div>
+             </div>
+             <br>
+
+
+
+      </div>
+
+        {%endfor%}
+    </div>
+
+        {%  endblock %}

@@ -1,0 +1,104 @@
+{% extends 'base.html' %} {% block content %}
+<div class="hero-wrap hero-bread" style="background-image: url('../media/images/logo.jpg');  height: 400px; ">
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center">
+                <h1 class="mb-0 bread header-style">My Cart</h1>
+                <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span class="mr-2"><a href="shop.html">Shop</a></span></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{%if empty%}
+
+<a href='{% url "all" %}' ><h1 style='text-align:center;'>{{empty_massage}}</h1></a>
+
+{%else%}
+
+
+<!--Cart Table starts here -->
+
+<section class="ftco-section ftco-cart">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 ftco-animate">
+                <div class="cart-list">
+                    <table class="table">
+                        <thead class="thead-primary">
+                            <tr class="text-center">
+
+                                <th>Image</th>
+                                <th>Product</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {%for item in cart.cartitem_set.all%}
+                            <tr class="text-center">
+
+
+                                <td class="image-prod">
+                                    {% for img in item.product.productimage_set.all %}
+                                    <div class="col-lg-6 mb-5 ftco-animate">
+                                        <a href="../media/{{ MEDIA_URL }}{{ img.image }}" class="image-popup"><img src="../media/{{ MEDIA_URL }}{{ img.image }}" class="img-fluid"></a>
+                                    </div>
+                                    {%endfor%}
+                                </td>
+
+                                <td class="product-name">
+                                    <h3>{{item.product.title}}</h3>
+
+                                </td>
+
+                                <td class="price" style="width: 110px;">RM {{item.product.price}}</td>
+
+                                <td class="quantity">
+                                    <div class="input-group mb-3">
+                                        <input type="text" name="quantity" style="pointer-events: none; " class="quantity form-control input-number" value="{{item.quantity}}" min="1" max="100">
+                                    </div>
+                                </td>
+
+                                <td class="total" style="width: 110px;">RM {{item.line_total}}</td>
+
+                                <td class="product-remove"><a href='{% url "remove_from_cart" item.id%}'><span class="ion-ios-close"></span></a></td>
+                            </tr>
+                            <!-- END TR-->
+                            {%endfor%}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-end">
+            <div class="col col-lg-5 col-md-6 mt-5 cart-wrap ftco-animate">
+                <div class="cart-total mb-3">
+                    <h3>Cart Totals</h3>
+                    <p class="d-flex">
+                        <span>Subtotal</span>
+                        <span>RM {{cart.Sub_total}}</span>
+                    </p>
+                    <p class="d-flex">
+                        <span>Delivery</span>
+                        <span>RM 15.00</span>
+                    </p>
+                    <p class="d-flex">
+                        <span>Discount</span>
+                        <span>RM0.00</span>
+                    </p>
+                    <hr>
+                    <p class="d-flex total-price">
+                        <span>Total</span>
+                        <span>RM {{cart.total}}</span>
+                    </p>
+                </div>
+                <p class="text-center"><a href='{% url "checkout" %}' class="btn btn-primary py-3 px-4">Proceed to Checkout</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+{%endif%} {%endblock%}

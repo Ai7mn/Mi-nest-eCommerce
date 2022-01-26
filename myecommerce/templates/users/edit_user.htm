@@ -1,0 +1,52 @@
+{% extends 'base.html' %} {% block content %}
+<div class="hero-wrap hero-bread" style="background-image: url('../../media/images/logo.jpg'); height: 400px;">
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center">
+                <h1 class="mb-0 bread header-style">Payment</h1>
+                <p class="breadcrumbs"><span class="mr-2"><a href='{% url "home"%}'>Home</a></span></p>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-8 ftco-animate">
+
+
+
+                <!-- Payment mehthod form start here-->
+
+                <div class="col-md-12">
+                    <div class="cart-detail bg-light p-3 p-md-4">
+
+                        <form method="POST" class="billing-form bg-light p-3 p-md-5">{% csrf_token %}
+                            <h3 class="mb-4 billing-heading">Edit </h3>
+                            <div class="row align-items-end">
+                                {% for field in form.visible_fields %}
+                                <div class="w-100"></div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>{{ field.label }}</label> {{ field }}
+                                    </div>
+                                </div>
+                                {%endfor%}
+                                <div class="col-md-8"></div>
+                                <div class="col-md-4">
+                                    <input type="submit" name="add" value="Add Address" class="btn btn-primary py-2 px-6">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- .col-md-8 -->
+    </div>
+    </div>
+</section>
+<!-- .section -->
+
+{%endblock%}

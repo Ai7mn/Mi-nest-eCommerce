@@ -1,0 +1,34 @@
+{%  extends 'base.html' %}
+
+{%  block head_Style %}
+
+  <style>
+    .center {
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+  </style>
+
+
+{%  endblock %}
+
+
+  {% block content%}
+
+<div class="col-sm-xx loginClass"  style="margin-top: 50px;" align="center">
+<form class="form-group center" action="" method="POST" align="center"> {% csrf_token %}
+
+  {{ form.as_p }}
+
+  <span class="text-success" ></span>
+  <input type="submit" name="LoginBtn" value="Login" class= "btn btn-primary" >
+    <br>
+    <hr>
+
+    <a class ="center" href="{%url 'auth_register'%}">If You Dont Have Account, You can Register Here.</a>
+  </form>
+
+</div>
+  {%endblock%}

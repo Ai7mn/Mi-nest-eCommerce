@@ -1,0 +1,45 @@
+{% extends 'base.html' %} {%load static%} {% block content %}
+
+
+<div class="hero-wrap hero-bread " style=" background-image: url('../media/images/logo.jpg'); height: 400px; ">
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 ">
+                <h1 class="mb-0 bread header-style">Collection</h1>
+                <p class="breadcrumbs"><span class="mr-2"> <span>Searched result for " {{ key }} "</span></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="ftco-section bg-light">
+    <div class="container-fluid">
+        <div class="row">
+            {%for Product in products%}
+            <div class="col-sm col-md-6 col-lg-3 ftco-animate">
+                <div class="product">
+                    {%if Product.productimage_set.all%} {% for item in Product.productimage_set.all %}
+                    <a href='{% url "single_product" Product.slug%}' class="img-prod"><img class="img-fluid" src="../media/{{ MEDIA_URL }}{{ item.image }}">
+                    </a>
+                    {%endfor%} {%endif%}
+                    <div class="text py-3 px-3">
+                        <h3><a href='{% url "single_product" Product.slug%}'>{{Product.title}}</a></h3>
+                        <div class="d-flex">
+                            <div class="pricing">
+                                <p class="price"><span class="price-sale">RM {{Product.price}}</span></p>
+                            </div>
+                        </div>
+                        <hr>
+                        <p class="bottom-area d-flex">
+                            <a href='{% url "add_to_cart" Product.slug %}' class="add-to-cart"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {%endfor%}
+
+        </div>
+    </div>
+
+</section>
+{% endblock %}

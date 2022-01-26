@@ -1,0 +1,95 @@
+.navbar{
+    padding: 0%;
+}
+
+
+#col-right, #col-left{
+    float: left;
+    width: 28%;
+}
+
+#col-center{
+  float: left;
+  width: 44%;
+}
+
+.navbar-brand{
+    float: right;
+}
+
+.form, .form-control{
+    width: 100%
+}
+
+.form-control{
+  width: 100%;
+  border: white solid 1px ; 
+  border-radius: 0% 20% 0% 20%;
+}
+
+  .btn{
+      float: left;
+      border: none;
+  }
+
+ .col-80{
+   float: left;
+   width: 80%;
+
+ }
+ .col-20{
+  float: left;
+  width: 20%;
+}
+
+#col{
+  width: 100%;
+  margin: 0px 5px 5px 45px;
+} 
+
+@media screen and (min-width:700px) {
+    #col {
+     
+      display: none;
+    }
+  }
+
+@media screen and (max-width:700px){
+    #col-center {
+        display: none;
+    }
+}
+
+@media screen and (max-width:700px){
+  #col-right, #col-left {
+      width: 35%;
+  }
+}
+
+@media screen and (max-width:700px){
+  .col-20 {
+    margin-top: 9px;
+  }
+}
+
+@media screen and (max-width:700px){
+  .col-80 {
+    margin-top: 13px;
+  }
+}
+
+
+
+.home{
+    padding-top: 30px ;
+    
+}
+
+.bd-example{
+    margin: auto;
+    width: 50%;
+}
+
+
+
+

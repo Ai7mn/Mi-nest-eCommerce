@@ -1,0 +1,51 @@
+{%  extends 'base.html' %}
+
+
+{% block content  %}
+<div class='col-sm-8 col-sm-offset-2'>
+{%if empty%}
+
+   <h1 style = 'text-align:center;'>{{empty_massage}}</h1>
+
+{%else%}
+<table class = 'table'>
+  <thead>
+    <th> item </th>
+    <th> Price </th>
+    <th>Quantity</th>
+    <th>Details</th>
+    <th></th>
+  </thead>
+  <tfoot>
+  <tr>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td><h6>total : {{cart.total}} </h6> </td>
+  </tr>
+  </tfoot>
+{%for item in cart.cartitem_set.all%}
+    <tr>
+      <td> {{item.product.title}} </td>
+      <td>{{item.product.price}}</td>
+        <td>{{item.quantity}}</td>
+        <td>
+          {%if item.variations.all%}
+          <ul>
+            {%for subitem in item.variations.all%}
+            <li>{{subitem.category|capfirst}} : {{subitem.title|capfirst}}</li>
+            {%endfor%}
+          </ul>
+          {%endif%}
+        </td>
+      <td><a href='{% url "remove_from_cart" item.id%}'>Remove</a></td>
+
+      </tr>
+  {% endfor %}
+</table>
+{%endif%}
+  <br>
+   <a href='{% url "checkout"%}'>Checkout</a>
+</div>
+{%  endblock %}

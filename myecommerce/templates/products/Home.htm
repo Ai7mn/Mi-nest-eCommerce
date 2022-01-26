@@ -1,0 +1,229 @@
+{% extends 'base.html' %} {% block content %}
+
+
+<div class="hero-wrap js-fullheight" style="background-image: url('../media/images/cover-4.jpg'); ">
+
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
+            <h3 class="v"></h3>
+            <h3 class="vr"></h3>
+
+            <div class="mouse">
+                <a href="#" class="mouse-icon">
+                    <div class="mouse-wheel"><span class="ion-ios-arrow-down"></span></div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="goto-here"></div>
+
+<section class="ftco-section ftco-product">
+    <div class="container">
+        <div class="row justify-content-center mb-3 pb-3">
+            <div class="col-md-12 heading-section text-center ftco-animate">
+                <h1 class="big">Trending</h1>
+                <h2 class="mb-4">Trending</h2>
+            </div>
+        </div>
+
+        <!--Trending product list starts here -->
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="product-slider owl-carousel ftco-animate">
+                    {%for Product in products%}
+                    <div class="item">
+                        <div class="product">
+                            {%if Product.productimage_set.all%} {% for item in Product.productimage_set.all %}
+                            <a href='{% url "single_product" Product.slug%}' class="img-prod"><img class="img-fluid" src="../media/{{ MEDIA_URL }}{{ item.image }}">
+                                <span class="status">30%</span>
+                            </a>
+                            {%endfor%} {%else%}
+                            <img class="img-responsive" src="media/placeholder.jpg" alt="Card image cap" height="250" /> {%endif%}
+                            <div class="text pt-3 px-3">
+                                <h3><a href='{% url "single_product" Product.slug%}'>{{Product.title}}</a></h3>
+                                <div class="d-flex">
+                                    <div class="pricing">
+                                        <p class="price"> <span class="price-sale">RM {{Product.price}}</span></p>
+                                    </div>
+                                    <!-- <span class="mr-2 price-dc">RM {{Product.price}}</span>  -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {%endfor%}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section ftco-no-pb ftco-no-pt bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/bg_2.jpg);">
+                <a href="https://vimeo.com/45830194" class="icon popup-vimeo d-flex justify-content-center align-items-center">
+                    <span class="icon-play"></span>
+                </a>
+            </div>
+            <div class="col-md-7 py-5 wrap-about pb-md-5 ftco-animate">
+                <div class="heading-section-bold mb-5 mt-md-5">
+                    <div class="ml-md-0">
+                        <h2 class="mb-4">Mi <br>Nest <br> <span>Birdnest</span></h2>
+                    </div>
+                </div>
+                <div class="pb-md-5">
+                    <p>Mi nest birdnest is a health supplement company based in kuala Lumpur. More detailed description here.</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--Customer review part starts here -->
+
+<section class="ftco-section testimony-section bg-light">
+    <div class="container">
+        <div class="row justify-content-center mb-3 pb-3">
+            <div class="col-md-12 heading-section text-center ftco-animate">
+                <h1 class="big">Testimony</h1>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-8 ftco-animate">
+                <div class="row ftco-animate">
+                    <div class="col-md-12">
+                        <div class="carousel-testimony owl-carousel ftco-owl">
+                            <div class="item">
+                                <div class="testimony-wrap py-4 pb-5">
+                                    <div class="user-img mb-4" style="background-image: url(images/person_1.jpg)">
+                                        <span class="quote d-flex align-items-center justify-content-center">
+		                      <i class="icon-quote-left"></i>
+		                    </span>
+                                    </div>
+                                    <div class="text text-center">
+                                        <p class="mb-4">This bird nest drink is authentic and my favorite. Quality is top notch! </p>
+                                        <p class="name">Roger Scott</p>
+                                        <span class="position">Customer</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="testimony-wrap py-4 pb-5">
+                                    <div class="user-img mb-4" style="background-image: url(images/person_2.jpg)">
+                                        <span class="quote d-flex align-items-center justify-content-center">
+		                      <i class="icon-quote-left"></i>
+		                    </span>
+                                    </div>
+                                    <div class="text text-center">
+                                        <p class="mb-4">Trusted seller.Good price. Love their services</p>
+                                        <p class="name">Roger Scott</p>
+                                        <span class="position">Customer</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="testimony-wrap py-4 pb-5">
+                                    <div class="user-img mb-4" style="background-image: url(images/person_3.jpg)">
+                                        <span class="quote d-flex align-items-center justify-content-center">
+		                      <i class="icon-quote-left"></i>
+		                    </span>
+                                    </div>
+                                    <div class="text text-center">
+                                        <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                                        <p class="name">Roger Scott</p>
+                                        <span class="position">Customer</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="testimony-wrap py-4 pb-5">
+                                    <div class="user-img mb-4" style="background-image: url(images/person_1.jpg)">
+                                        <span class="quote d-flex align-items-center justify-content-center">
+		                      <i class="icon-quote-left"></i>
+		                    </span>
+                                    </div>
+                                    <div class="text text-center">
+                                        <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                                        <p class="name">Roger Scott</p>
+                                        <span class="position">Customer</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="testimony-wrap py-4 pb-5">
+                                    <div class="user-img mb-4" style="background-image: url(images/person_1.jpg)">
+                                        <span class="quote d-flex align-items-center justify-content-center">
+		                      <i class="icon-quote-left"></i>
+		                    </span>
+                                    </div>
+                                    <div class="text text-center">
+                                        <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                                        <p class="name">Roger Scott</p>
+                                        <span class="position">Customer</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<section class="ftco-section bg-light ftco-services">
+    <div class="container">
+        <div class="row justify-content-center mb-3 pb-3">
+            <div class="col-md-12 heading-section text-center ftco-animate">
+                <h1 class="big">Services</h1>
+                <h2>We want you to express yourself</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 text-center d-flex align-self-stretch ftco-animate">
+                <div class="media block-6 services">
+                    <div class="icon d-flex justify-content-center align-items-center mb-4">
+                        <img src="../media/images/recommended.png" width="70px;" hight="70px;" alt="image">
+                    </div>
+                    <div class="media-body">
+                        <h3 class="heading">Refund </h3>Policy
+                        <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 text-center d-flex align-self-stretch ftco-animate">
+                <div class="media block-6 services">
+                    <div class="icon d-flex justify-content-center align-items-center mb-4">
+                        <img src="../media/images/box.png" width="70px;" hight="70px;" alt="image">
+                    </div>
+                    <div class="media-body">
+                        <h3 class="heading">Premium Packaging</h3>
+                        <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 text-center d-flex align-self-stretch ftco-animate">
+                <div class="media block-6 services">
+                    <div class="icon d-flex justify-content-center align-items-center mb-4">
+                        <img src="../media/images/medal.png" width="70px;" hight="70px;" alt="image">
+                    </div>
+                    <div class="media-body">
+                        <h3 class="heading">Superior Quality</h3>
+                        <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{%endblock%}

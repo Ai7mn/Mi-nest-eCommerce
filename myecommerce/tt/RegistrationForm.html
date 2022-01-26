@@ -1,0 +1,21 @@
+{%  extends 'base.html' %}
+
+
+
+
+
+  {% block content%}
+
+<div class="col-sm-xx"  style="margin-top: 50px;" >
+<form class="form-group center" action="" method="POST"> {% csrf_token %}
+
+  {{ form.as_p }}
+<input type="submit" name="RegisterBtn" value="Register" class="btn btn-primary">
+    <br>
+    <hr>
+
+    <a class ="center" href="{%url 'auth_login'%}">If You Have Account, You can Login Here.</a>
+  </form>
+
+</div>
+  {%endblock%}

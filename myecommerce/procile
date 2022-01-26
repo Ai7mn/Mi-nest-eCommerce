@@ -1,0 +1,1 @@
+web: gunicorn myecommerce.wsgi --log-file -

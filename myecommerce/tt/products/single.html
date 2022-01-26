@@ -1,0 +1,86 @@
+{%  extends 'base.html' %}
+
+
+
+
+
+{% block content  %}
+
+<div class="row align-items-center" >
+  <div class="col-sm-4">
+   {% for item in product.productimage_set.all %}
+    <div class="col-xs-6">
+      <img class="img-thumbnai"
+      src="../../media/{{ MEDIA_URL }}{{ item.image }}" alt="Card image cap" height="250px"/>
+    </div>
+      </div>
+            {%endfor%}
+
+
+
+
+
+         <div class="col-sm-4 pull-left">
+           <h1>{{product.title}}</h1>
+         </div>
+         <div class="col-sm-4 pull-right">
+
+           <form class="form-inline" method="POST" action='{% url "add_to_cart" product.slug %}'
+           >{% csrf_token%}
+
+             <input class="form-control col-8" type="number" name="qty" value="1">
+
+             <br>
+             <br>
+
+
+             {% if product.variation_set.all %}
+             {%if product.variation_set.colors%}
+             <select class="form-control col-8" name="color">
+             {% for item in product.variation_set.colors %}
+               <option  value="{{item.id}}"> {{item.title|capfirst}}</option>
+                 {%endfor%}
+             </select>
+             <br>
+             <br>
+             {%endif%}
+             {%endif%}
+
+
+             {% if product.variation_set.all %}
+             {%if product.variation_set.sizes%}
+             <select class="form-control col-8" name="size">
+             {% for item in product.variation_set.sizes %}
+               <option  value="{{item.id}}"> {{item.title|capfirst}}</option>
+                 {%endfor%}
+             </select>
+             <br>
+             <br>
+             {%endif%}
+             {%endif%}
+
+
+                <input class="btn btn-primary col-8" type="submit" value="Add to cart" >
+
+
+           </form>
+         </div>
+         <div class="col-sm-4">
+
+         </div>
+
+        <div class="col-sm-8 pull-left">
+          <hr>
+         <h6>Price :{{product.price}} </h6>
+         <br>
+         Free shipping
+         <hr>
+         <p>{{product.describtion}}</p>
+         </div>
+      </div>
+
+
+
+
+
+{%  endblock %}

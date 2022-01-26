@@ -1,0 +1,73 @@
+{% extends 'base.html' %} {% block content %}
+<div class="hero-wrap hero-bread" style="background-image: url('../media/images/logo.jpg'); height: 400px;">
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center">
+                <h1 class="mb-0 bread header-style">Payment</h1>
+                <p class="breadcrumbs"><span class="mr-2"><a href='{% url "home"%}'>Home</a></span></p>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-8 ftco-animate">
+
+
+                <!-- Cart total form start here-->
+
+                <div class="row mt-5 pt-3 d-flex">
+                    <div class="col-md-6 d-flex">
+                        <div class="cart-detail cart-total bg-light p-3 p-md-4">
+                            <h3 class="billing-heading mb-4">Order Total</h3>
+                            <p class="d-flex">
+                                <span>Subtotal</span>
+                                <span>RM {{order.sub_total}}</span>
+                            </p>
+                            <p class="d-flex">
+                                <span>Delivery</span>
+                                <span>RM 15.00</span>
+                            </p>
+                            <p class="d-flex">
+                                <span>Discount</span>
+                                <span>RM0.00</span>
+                            </p>
+                            <hr>
+                            <p class="d-flex total-price">
+                                <span>Total</span>
+                                <span>RM {{order.final_total}}</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Payment mehthod form start here-->
+
+                    <div class="col-md-6">
+                        <div class="cart-detail bg-light p-3 p-md-4">
+                            <h3 class="billing-heading mb-4">Payment</h3>
+                            <div class="form-group">
+                              <p> Mi Nest Birdnest Sdn. Bhd. <br>
+                                  Alliance bank <br>
+                                  1409 1001 3003 513 <br> </p>
+                                  <br>
+                                <label for="filename">Make a transaction with your total to the above Bank accoubt details and  upload your bank payment slip here</label><br>
+                                  <br>
+                                <form method="POST" enctype="multipart/form-data">{%csrf_token%} {{form.payment_slip}}
+                                    <p> </p>
+                                    <p> </p>
+                                    <p>
+                                        <input type="submit" value="Send" style="margin-top:10% ;" class="btn btn-primary py-3 px-4 " /></p>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- .col-md-8 -->
+        </div>
+    </div>
+</section>
+<!-- .section -->
+
+{%endblock%}
